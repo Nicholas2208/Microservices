@@ -1,10 +1,13 @@
 package com.nwhite.accounts.service.impl;
 
 import com.nwhite.accounts.constants.AccountConstants;
+import com.nwhite.accounts.dto.AccountDto;
 import com.nwhite.accounts.dto.CustomerDto;
 import com.nwhite.accounts.entity.Account;
 import com.nwhite.accounts.entity.Customer;
 import com.nwhite.accounts.exception.CustomerAlreadyExistsException;
+import com.nwhite.accounts.exception.ResourceNotFoundException;
+import com.nwhite.accounts.mapper.AccountMapper;
 import com.nwhite.accounts.mapper.CustomerMapper;
 import com.nwhite.accounts.repository.AccountRepository;
 import com.nwhite.accounts.repository.CustomerRepository;
@@ -54,5 +57,18 @@ public class AccountServiceImpl implements IAccountService {
         newAccount.setCreatedAt(LocalDateTime.now());
         newAccount.setCreatedBy("anonymous");
         return newAccount;
+    }
+
+    @Override
+    public CustomerDto fetchAccount(String mobileNumber) {
+        Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+                () -> new ResourceNotFoundException("Customer", "mobileNumber", mobileNumber)
+        );
+        Account account = accountRepository.findByCustomerId(customer.getCustomerId()).orElseThrow(
+                () -> new ResourceNotFoundException("Account", "customerId", customer.getCustomerId().toString())
+        );
+        CustomerDto customerDto = CustomerMapper.mapToCustomerDto(customer, new CustomerDto());
+        customerDto.setAccountDto(AccountMapper.mapToAccountDto(account, new AccountDto()));
+        return customerDto;
     }
 }

@@ -14,3 +14,19 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"
+  profiles:
+    active:
+      - "prod"
+
+cards:
+  message: "Welcome to White Bank cards related local APIs "
+  contactDetails:
+    name: "Nicholas White - Developer"
+    email: "nwhite@mail.com"
+  onCallSupport:
+    - (812) 333-2654
+    - (812) 555-3675

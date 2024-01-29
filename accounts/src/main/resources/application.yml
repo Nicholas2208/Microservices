@@ -17,3 +17,12 @@ spring:
 
 build:
   version: "1.0"
+
+accounts:
+  message: "Welcome to White Bank accounts related QA APIs "
+  contactDetails:
+    name: "Nicholas White - Developer"
+    email: "nwhite@whitebank.com"
+  onCallSupport:
+    - (812) 333-2654
+    - (812) 555-3675

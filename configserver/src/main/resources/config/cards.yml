@@ -1,0 +1,11 @@
+build:
+  version: "3.0"
+
+cards:
+  message: "Welcome to White Bank cards related local APIs "
+  contactDetails:
+    name: "Nicholas White - Developer"
+    email: "nwhite@mail.com"
+  onCallSupport:
+    - (812) 333-2654
+    - (812) 555-3675

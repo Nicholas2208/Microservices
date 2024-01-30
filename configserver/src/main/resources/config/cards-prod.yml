@@ -1,8 +1,8 @@
 build:
   version: "1.0"
 
-accounts:
-  message: "Welcome to White Bank accounts related prod APIs "
+cards:
+  message: "Welcome to White Bank cards related prod APIs "
   contactDetails:
     name: "Arthur Peck - Product Owner"
     email: "arthura@whitebank.com"

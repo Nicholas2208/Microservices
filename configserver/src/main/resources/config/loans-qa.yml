@@ -1,8 +1,8 @@
 build:
   version: "2.0"
 
-accounts:
-  message: "Welcome to White Bank accounts related QA APIs "
+loans:
+  message: "Welcome to White Bank loans related QA APIs "
   contactDetails:
     name: "Helen Petrovsky - QA Lead"
     email: "helen@mail.com"

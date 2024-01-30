@@ -2,12 +2,16 @@ spring:
   application:
     name: "configserver"
   profiles:
-    active: native
+    active: git
   cloud:
     config:
       server:
-        native:
-          search-locations: "file:///C://Users//PC//whitebank-config"
+        git:
+          uri: "https://github.com/Nicholas2208/WhiteBankConfig.git"
+          default-label: master
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
 server:
   port:
     8071

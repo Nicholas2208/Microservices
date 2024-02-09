@@ -20,17 +20,19 @@ public class GatewayserverApplication {
 		return routeLocatorBuilder.routes()
 				.route(p -> p
 						.path("/whitebank/accounts/**")
-						.filters( f -> f.rewritePath("/whitebank/accounts/(?<segment>.*)","/${segment}"))
+						.filters( f -> f.rewritePath("/whitebank/accounts/(?<segment>.*)","/${segment}")
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
 						.uri("lb://ACCOUNTS"))
 				.route(p -> p
 						.path("/whitebank/loans/**")
-						.filters( f -> f.rewritePath("/whitebank/loans/(?<segment>.*)","/${segment}"))
+						.filters( f -> f.rewritePath("/whitebank/loans/(?<segment>.*)","/${segment}")
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
 						.uri("lb://LOANS"))
 				.route(p -> p
 						.path("/whitebank/cards/**")
-						.filters( f -> f.rewritePath("/whitebank/cards/(?<segment>.*)","/${segment}"))
+						.filters( f -> f.rewritePath("/whitebank/cards/(?<segment>.*)","/${segment}")
+								.addResponseHeader("X-Response-Time", LocalDateTime.now().toString()))
 						.uri("lb://CARDS")).build();
-
 	}
 
 }

@@ -48,6 +48,11 @@ info:
     description: "White Bank Accounts Application"
     version: "1.0.0"
 
+logging:
+  level:
+    com:
+      nwhite:
+        accounts: DEBUG
 
 
 

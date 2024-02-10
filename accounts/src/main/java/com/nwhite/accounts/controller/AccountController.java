@@ -15,7 +15,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +25,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Value;
+
+import java.util.concurrent.TimeoutException;
 
 @Tag(
         name = "CRUD REST APIs for Accounts in White Bank",
@@ -179,7 +180,7 @@ public class AccountController {
     @GetMapping("/build-info")
     public ResponseEntity<String> getBuildInfo() {
         logger.debug("getBuildInfo() method Invoked");
-        return ResponseEntity
+         return ResponseEntity
                 .status(HttpStatus.OK)
                 .body(buildVersion);
     }

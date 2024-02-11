@@ -6,6 +6,7 @@ import com.nwhite.accounts.dto.CustomerDto;
 import com.nwhite.accounts.dto.ErrorResponseDto;
 import com.nwhite.accounts.dto.ResponseDto;
 import com.nwhite.accounts.service.IAccountService;
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
 import io.github.resilience4j.retry.annotation.Retry;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -210,6 +211,7 @@ public class AccountController {
             )
     }
     )
+    @RateLimiter(name= "getJavaVersion")
     @GetMapping("/java-version")
     public ResponseEntity<String> getJavaVersion() {
         return ResponseEntity

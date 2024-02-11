@@ -86,7 +86,7 @@
 				<version>3.4.0</version>
 				<configuration>
 					<to>
-						<image>nicholas2208/${project.artifactId}:s10</image>
+						<image>nicholas2208/${project.artifactId}:s11</image>
 					</to>
 				</configuration>
 			</plugin>
